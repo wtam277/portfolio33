@@ -1,0 +1,9 @@
+version: '3'
+services:
+  ruby:
+    build: .
+    tty: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
