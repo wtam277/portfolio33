@@ -31,5 +31,14 @@ curriculum_data = [
   ["Admin課題", 4]
 ]
 
-# 動作確認サンプル
-puts curriculum_data
+# 学習時間ごとにグループ分けし、期待される出力形式で整形する
+result = curriculum_data.group_by { |item| item[1] }.map do |hour, items|
+  {
+    hour: hour,
+    count: items.count,
+    contents: items.map { |item| item[0] }
+  }
+end
+
+# 結果を出力
+puts result
